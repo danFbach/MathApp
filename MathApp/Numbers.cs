@@ -8,18 +8,18 @@ namespace MathApp
 {
     class Numbers
     {
-        public int getFirstNumber()
+        public double getFirstNumber()
         {
-            int number1;
+            double number1;
             Console.WriteLine("Please enter your first number.");
-            number1 = int.Parse(Console.ReadLine());
+            number1 = double.Parse(Console.ReadLine());
             return number1;
         }
-        public int getSecondNumber()
+        public double getSecondNumber()
         {
-            int number2;
+            double number2;
             Console.WriteLine("Please enter your first number.");
-            number2 = int.Parse(Console.ReadLine());
+            number2 = double.Parse(Console.ReadLine());
             return number2;
         }
     }

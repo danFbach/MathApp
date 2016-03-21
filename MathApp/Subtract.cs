@@ -8,8 +8,8 @@ namespace MathApp
 {
     class Subtract
     {
-        public int answer;
-        public int Subtraction(int number1, int number2)
+        public double answer;
+        public double Subtraction(double number1, double number2)
         {
             answer = number1 - number2;
 

@@ -8,17 +8,10 @@ namespace MathApp
 {
     class Exponent
     {
-        public int answer;
-        public int Exponential(int number1, int number2)
+        public double answer;
+        public double Exponential(double number1, double number2)
         {
-            int newNumber = number1 * number1;
-            int count = number2 - 2;
-            if (count > 0)
-            {
-                newNumber = (newNumber * number1);
-                count--;
-            }
-            answer = newNumber;
+            answer = Math.Pow(number1, number2);
             return answer;
         }
     }

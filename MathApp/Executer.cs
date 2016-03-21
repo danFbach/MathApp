@@ -15,13 +15,13 @@ namespace MathApp
         public Divide divide = new Divide();
         public Multiply multiply = new Multiply();
         public Exponent power = new Exponent();
-        public int answer;
+        public double answer;
 
         public void run()
         {
-            int number1 = numbers.getFirstNumber();
+            double number1 = numbers.getFirstNumber();
             string opType = operation.getOperator();
-            int number2 = numbers.getSecondNumber();
+            double number2 = numbers.getSecondNumber();
 
             if (opType.Equals("+"))
                 {

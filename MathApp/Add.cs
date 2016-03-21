@@ -8,8 +8,8 @@ namespace MathApp
 {
     class Add
     {
-        public int answer;
-        public int Addition(int number1, int number2)
+        public double answer;
+        public double Addition(double number1, double number2)
         {
             answer = number1 + number2;
 

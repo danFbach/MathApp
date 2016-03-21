@@ -8,8 +8,8 @@ namespace MathApp
 {
     class Multiply
     {
-        public int answer;
-        public int Multiplication(int number1, int number2)
+        public double answer;
+        public double Multiplication(double number1, double number2)
         {
             answer = number1 * number2;
 

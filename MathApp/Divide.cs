@@ -8,8 +8,8 @@ namespace MathApp
 {
     class Divide
     {
-        public int answer;
-        public int division(int number1, int number2)
+        public double answer;
+        public double division(double number1, double number2)
         {
             answer = number1 / number2;
 
