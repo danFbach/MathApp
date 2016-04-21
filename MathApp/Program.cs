@@ -12,7 +12,6 @@ namespace MathApp
         {    
             Executer run = new Executer();
             run.run();
-            Console.ReadLine();
         }
     }
 }

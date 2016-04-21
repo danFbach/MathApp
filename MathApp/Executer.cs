@@ -21,35 +21,58 @@ namespace MathApp
 
         public void run()
         {
-            double number1 = numbers.getFirstNumber();
-            Char opType = operation.getOperator();
-            double number2 = numbers.getSecondNumber();
+            bool calculateAgain = true;
+            while (calculateAgain)
+            { 
+                double number1 = numbers.getFirstNumber();
+                Char opType = operation.getOperator();
+                double number2 = numbers.getSecondNumber();
 
-            answer1 = universalCalculation.genericCalculator(number1,number2,opType);
+                answer1 = universalCalculation.genericCalculator(number1, number2, opType);
 
-            if (opType.Equals('+'))
-            {
-                answer2 = add.Addition(number1, number2);
+                if (opType.Equals('+'))
+                {
+                    answer2 = add.Addition(number1, number2);
+                }
+                else if (opType.Equals('-'))
+                {
+                    answer2 = sub.Subtraction(number1, number2);
+                }
+                else if (opType.Equals('/'))
+                {
+                    answer2 = divide.division(number1, number2);
+                }
+                else if (opType.Equals('*'))
+                {
+                    answer2 = multiply.Multiplication(number1, number2);
+                }
+                else if (opType.Equals('^'))
+                {
+                    answer2 = power.Exponential(number1, number2);
+                }
+                Console.WriteLine("Factory pattern: \n\rThe answer to {0} {1} {2} is {3}.\n\r", number1, opType, number2, answer2);
+                Console.WriteLine("Dependancy injection: \n\rThe answer to {0} {1} {2} is {3}.", number1, opType, number2, answer1);
+                calculateAgain = newCalculation();
+                Console.Clear();
             }
-            else if (opType.Equals('-'))
+        }
+        public bool newCalculation()
+        {
+            Char[] yes = { 'y', 'Y' };
+            Char[] no = { 'n', 'N' };
+            Char answer;
+            Console.WriteLine("Do you need to make another calculation? (Y/N)");
+            bool check = Char.TryParse(Console.ReadLine(), out answer);
+            if (!check) { Console.WriteLine("Invalid Characters."); return newCalculation(); }
+            if (yes.Contains(answer))
             {
-                answer2 = sub.Subtraction(number1, number2);
+                return true;
             }
-            else if (opType.Equals('/'))
+            else if (no.Contains(answer))
             {
-                answer2 = divide.division(number1, number2);
+                return false;
             }
-            else if (opType.Equals('*'))
-            {
-                answer2 = multiply.Multiplication(number1, number2);
-            }
-            else if (opType.Equals('^'))
-            {
-                answer2 = power.Exponential(number1, number2);
-            }
-            Console.WriteLine("Factory pattern: \n\rThe answer to {0} {1} {2} is {3}.\n\r", number1, opType, number2, answer2);
-
-            Console.WriteLine("Dependancy injection: \n\rThe answer to {0} {1} {2} is {3}.", number1, opType, number2, answer1);
+            else { Console.WriteLine("Invalid selection, please re-enter"); return newCalculation(); }
         }
     }
 }
