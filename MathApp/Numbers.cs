@@ -12,14 +12,16 @@ namespace MathApp
         {
             double number1;
             Console.WriteLine("Please enter your first number.");
-            number1 = double.Parse(Console.ReadLine());
+            bool check = double.TryParse(Console.ReadLine(), out number1);
+            if (!check) { Console.WriteLine("Invalid Entry"); return getFirstNumber(); }
             return number1;
         }
         public double getSecondNumber()
         {
             double number2;
-            Console.WriteLine("Please enter your first number.");
-            number2 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter your second number.");
+            bool check = double.TryParse(Console.ReadLine(), out number2);
+            if (!check) { Console.WriteLine("Invalid Entry"); return getSecondNumber(); }
             return number2;
         }
     }

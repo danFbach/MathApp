@@ -8,11 +8,11 @@ namespace MathApp
 {
     class Operator
     {
-        public String getOperator()
+        public Char getOperator()
         {
-            String operatorChoice;
+            Char operatorChoice;
             Console.WriteLine("Please enter the operator of your choice. (+,-,/,*,^)");
-            operatorChoice = Console.ReadLine();
+            operatorChoice = Char.Parse(Console.ReadLine());
             return operatorChoice;
         }
     }
