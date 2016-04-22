@@ -8,40 +8,19 @@ namespace MathApp
 {
     class UniversalCalculation
     {
-        public double genericCalculator(double number1, double number2, Char opType)
-        {
-            double newNumber = 0;
-            switch (opType)
-            {
-                case ('+'):
-                    newNumber = number1 + number2;
-                    return newNumber;
-                case ('-'):
-                    newNumber = number1 - number2;
-                    return newNumber;
-                case ('*'):
-                    newNumber = number1 * number2;
-                    return newNumber;
-                case ('/'):
-                    newNumber = number1 / number2;
-                    return newNumber;
-                case ('^'):
-                    newNumber = Math.Pow(number1, number2);
-                    return newNumber;
-                default:
-                    return newNumber;
-            }            
-        }
         public double doMathWithList(List<string> numbers)
         {
             int i = 1;
-            double finalAnswer = Convert.ToDouble(numbers[0]);
-            while(i < numbers.Count())
-            {
-                
+            double nextNumber;
+            double finalAnswer;
+            bool finalAsnwerCheck = double.TryParse(numbers[0], out finalAnswer);
+            if (!finalAsnwerCheck) { Console.WriteLine("Error."); return 0; }
+            while (i < numbers.Count())
+            {                
                 Char opType = Convert.ToChar(numbers[i]);
                 i++;
-                double nextNumber = Convert.ToDouble(numbers[i]);
+                bool checkDouble = double.TryParse(numbers[i], out nextNumber);
+                if(!checkDouble) { Console.WriteLine("Error."); return 0; }                
                 switch (opType)
                 {
                     case ('+'):
@@ -65,9 +44,10 @@ namespace MathApp
                         i++;
                         break;
                     default:
-                        break;
+                        Console.WriteLine("Error.");
+                        return 0;
                 }
-            }            
+            }
             return finalAnswer;
         }
     }
