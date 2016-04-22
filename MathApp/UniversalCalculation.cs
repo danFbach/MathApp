@@ -32,5 +32,43 @@ namespace MathApp
                     return newNumber;
             }            
         }
+        public double doMathWithList(List<string> numbers)
+        {
+            int i = 1;
+            double finalAnswer = Convert.ToDouble(numbers[0]);
+            while(i < numbers.Count())
+            {
+                
+                Char opType = Convert.ToChar(numbers[i]);
+                i++;
+                double nextNumber = Convert.ToDouble(numbers[i]);
+                switch (opType)
+                {
+                    case ('+'):
+                        finalAnswer += nextNumber;
+                        i++;
+                        break;
+                    case ('-'):
+                        finalAnswer -= nextNumber;
+                        i++;
+                        break;
+                    case ('*'):
+                        finalAnswer *= nextNumber;
+                        i++;
+                        break;
+                    case ('/'):
+                        finalAnswer /= nextNumber;
+                        i++;
+                        break;
+                    case ('^'):
+                        finalAnswer = Math.Pow(finalAnswer, nextNumber);
+                        i++;
+                        break;
+                    default:
+                        break;
+                }
+            }            
+            return finalAnswer;
+        }
     }
 }
